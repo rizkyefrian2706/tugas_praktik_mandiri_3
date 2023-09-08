@@ -10,7 +10,7 @@ perkalian(listData, pengali) {
 }
 
 void main(List<String> arguments) {
-  print("Masukan Nilai: "); 
+  print("Masukan Nilai: ");
   double nilaiParse = double.tryParse(stdin.readLineSync() ?? '') ?? 0;
   if (nilaiParse > 70) {
     print("Nilai A\n");
@@ -24,12 +24,23 @@ void main(List<String> arguments) {
 
   for (int i = 1; i <= 10; i++) {
     print("perulangan $i");
-  }
+  } 
 
-  List arrayData = [1, 2, 3, 4, 5];
-  print("\nList Data Awal $arrayData");
-  print("Masukan nilai pengali : ");
-  int kali = int.tryParse(stdin.readLineSync() ?? '') ?? 0; 
-  var hasilData = perkalian(arrayData, kali);
-  print("Hasil Data $hasilData");
+  print("\nMasukan length list data : ");
+  int lengthData = int.tryParse(stdin.readLineSync() ?? '') ?? 0;
+  List arrayData = [];
+  if (lengthData > 0) {
+    for (var i = 1; i <= lengthData; i++) {
+      print("Masukan nilai : $i");
+      int nilai = int.tryParse(stdin.readLineSync() ?? '') ?? 0;
+      arrayData.add(nilai);
+    }
+    print("\nList Data Awal $arrayData");
+    print("Masukan nilai pengali : ");
+    int kali = int.tryParse(stdin.readLineSync() ?? '') ?? 0;
+    var hasilData = perkalian(arrayData, kali);
+    print("Hasil Data Kali $hasilData");
+  }else{
+    print(arrayData);
+  }
 }
